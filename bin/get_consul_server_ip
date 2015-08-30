@@ -1,0 +1,2 @@
+#! /usr/bin/env sh
+docker inspect consul-server | python -c 'import json; import sys; print json.load(sys.stdin)[0]["NetworkSettings"]["IPAddress"]'
