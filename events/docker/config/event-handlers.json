@@ -1,0 +1,14 @@
+{
+    "watches": [
+        {
+            "name": "change",
+            "type": "event",
+            "handler": "/bin/change"
+        },
+        {
+            "name": "die",
+            "type": "event",
+            "handler": "/bin/die"
+        }
+    ]
+}

@@ -1,0 +1,11 @@
+#! /usr/bin/env python
+import base64
+import json
+import sys
+
+events = json.load(sys.stdin)
+if events:
+    for e in events:
+        content = base64.b64decode(e["Payload"]) + '\n'
+        with open('/index.html', 'w') as f:
+            f.write(content)

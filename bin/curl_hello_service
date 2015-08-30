@@ -1,0 +1,4 @@
+#! /usr/bin/env sh
+THIS_DIR=$(dirname $0)
+dig @$(${THIS_DIR}/get_consul_server_ip) -p 8600 hello.service.consul +short | head -1 | xargs curl
+echo
