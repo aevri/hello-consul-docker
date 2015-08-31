@@ -1,0 +1,9 @@
+{
+    "watches": [
+        {
+            "type": "key",
+            "key": "hello/leader",
+            "handler": "/bin/contend-leadership.py"
+        }
+    ]
+}
