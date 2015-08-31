@@ -7,7 +7,7 @@ service. The 'hello' service simply serves a static website on port 80.
 The 'hello' service instances will respond to the 'die' and 'change' Consul
 custom messages.
 
-Here we will use Docker to create and instance of the 'hello' service, then we
+Here we will use Docker to create an instance of the 'hello' service, then we
 will discover and read from it. Next we will change it's output with the
 'change' custom event. Finally we will ask it to terminate with the 'die'
 custom event.
