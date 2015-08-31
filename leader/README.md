@@ -18,14 +18,14 @@ Worked example
 
 ```
 # Make sure a Consul server is running
-discovery/ $ ../bin/start_consul_server
-discovery/ $ CONSUL_SERVER_IP=$(../bin/get_consul_server_ip)
+leader/ $ ../bin/start_consul_server
+leader/ $ CONSUL_SERVER_IP=$(../bin/get_consul_server_ip)
 
 # Start the 'hello' service three times
-discovery/ $ docker build -t hello docker/
-discovery/ $ docker run -d --name hello0 --hostname hello0 hello
-discovery/ $ docker run -d --name hello1 --hostname hello1 hello
-discovery/ $ docker run -d --name hello2 --hostname hello2 hello
+leader/ $ docker build -t hello docker/
+leader/ $ docker run -d --name hello0 --hostname hello0 hello
+leader/ $ docker run -d --name hello1 --hostname hello1 hello
+leader/ $ docker run -d --name hello2 --hostname hello2 hello
 
 # View the 'hello/leader' key in the Consul web UI and verify that there is an
 # elected leader.
@@ -39,7 +39,7 @@ discovery/ $ docker run -d --name hello2 --hostname hello2 hello
 # <<LEADER_NAME>>.
 
 # Kill the current leader
-$ docker kill <<LEADER_NAME>>
+leader/ $ docker kill <<LEADER_NAME>>
 
 # Refresh the 'hello/leader' key in the web browser until the new leader
 # appears in the 'LOCK SESSION' block. It will take a few seconds for Consul to

@@ -17,27 +17,27 @@ Worked example
 
 ```
 # Make sure a Consul server is running
-discovery/ $ ../bin/start_consul_server
-discovery/ $ CONSUL_SERVER_IP=$(../bin/get_consul_server_ip)
+events/ $ ../bin/start_consul_server
+events/ $ CONSUL_SERVER_IP=$(../bin/get_consul_server_ip)
 
 # Start the 'hello' service
-discovery/ $ docker build -t hello docker/
-discovery/ $ docker run -d hello
+events/ $ docker build -t hello docker/
+events/ $ docker run -d hello
 
 # Discover the 'hello' service via DNS
-discovery/ $ HELLO_IP=$(dig @${CONSUL_SERVER_IP} -p 8600 hello.service.consul +short)
+events/ $ HELLO_IP=$(dig @${CONSUL_SERVER_IP} -p 8600 hello.service.consul +short)
 
 # Read from the 'hello' service using curl
-discovery/ $ curl ${HELLO_IP}
+events/ $ curl ${HELLO_IP}
 hello
 
 # Change the output of the 'hello' service with a 'change' event
-discovery/ $ docker exec consul-server consul event -name change bye
+events/ $ docker exec consul-server consul event -name change bye
 
 # Read from the 'hello' service using curl
-discovery/ $ curl ${HELLO_IP}
+events/ $ curl ${HELLO_IP}
 bye
 
 # Terminate the 'hello' service with a 'die' event
-discovery/ $ docker exec consul-server consul event -name die
+events/ $ docker exec consul-server consul event -name die
 ```
