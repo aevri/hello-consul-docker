@@ -14,4 +14,8 @@ These are the experiments, each are in their own subdirectory:
 - *events*: The 'hello' service is now a simple HTTP server, it can change it's
   output in response to custom events broadcast with Consul.
 
+- *leader*: The 'hello' services now contend with each-other to become the
+  single 'leader'. Consistency is achieved by using the session locking feature
+  of Consul's key/value store.
+
 Please see the subdirectories for more details.
